@@ -1,0 +1,72 @@
+/* ISIR Ghana – Global Theme Tokens (Step 1)
+   -------------------------------------------------- */
+
+:root {
+  /* FALLBACK PALETTE (used unless we derive from logo later) */
+  --isir-blue: #1E73FF;
+  --isir-green: #2BB24C;
+  --isir-navy: #0B132B;
+  --isir-slate: #1C2541;
+  --isir-cream: #F7FAFC;
+  --isir-text: #0F172A;
+
+  /* Base tokens */
+  --bg: var(--isir-cream);
+  --fg: var(--isir-text);
+  --brand: var(--isir-blue);
+  --accent: var(--isir-green);
+
+  /* Focus ring */
+  --focus: #2563EB; /* accessible blue */
+}
+
+/* Dark mode baseline (optional; can refine later) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0B132B;
+    --fg: #F8FAFC;
+    --brand: #5EA1FF;
+    --accent: #5CD67A;
+    --isir-cream: #0B132B; /* for bg-[var(--isir-cream)] compatibility */
+  }
+}
+
+/* Basic document defaults */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  color: var(--fg);
+  background: var(--bg);
+}
+
+/* Visible focus */
+:where(a, button, input, select, textarea, summary):focus-visible {
+  outline: 3px solid var(--focus);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Utility helpers (lightweight, complements Tailwind) */
+.visually-hidden {
+  position: absolute !important;
+  width: 1px; height: 1px;
+  padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0, 0, 0, 0);
+  white-space: nowrap; border: 0;
+}
+
+/* Max-width container helper if needed outside Tailwind */
+.container-max {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: 1rem;
+}
+
+/* Logo sizing baseline */
+.isir-logo {
+  width: 44px;
+  height: auto;
+  object-fit: contain;
+}
